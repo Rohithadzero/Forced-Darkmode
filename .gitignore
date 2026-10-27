@@ -45,12 +45,6 @@ tmp/
 temp/
 *.tmp
 
-# ---- Internal planning notes / AI tool files (not part of the project) ----
-docs/superpowers/
-.claude/
-CLAUDE.md
-.superpowers/
-
 # ---- Caches and local output ----
 .cache/
 .eslintcache
