@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>light</title>
+    <style>
+      :root { --surface: #ffffff; --ink: #222; --line: #ddd; }
+      body { background: #fff; color: #333; font: 16px sans-serif; }
+      .card { background: #f5f5f5; border: 1px solid #ddd; padding: 12px; }
+      .var-card { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+      .shorthand { background: #fff url(data:image/gif;base64,R0lGODlhAQABAAAAACw=) no-repeat; }
+      .btn { background: #1a73e8; color: #fff; }
+      .grad { background-image: linear-gradient(#fff, #eee); }
+      a { color: #1a0dab; }
+      .imp { color: #000 !important; }
+      :root { --fade: #fff; }
+      .fade::after { content: ''; display: block; height: 10px; background: linear-gradient(rgba(255, 255, 255, 0), var(--fade)); }
+      @media (prefers-color-scheme: dark) { .native-dark { color: rgb(1, 2, 3); } }
+    </style>
+    <link rel="stylesheet" href="http://127.0.0.1:4517/cross.css" />
+  </head>
+  <body>
+    <p id="text">Paragraph text with enough words to sample for contrast checks.</p>
+    <div class="card" id="card">Card content here for sampling</div>
+    <div class="var-card" id="var-card">Var card content here</div>
+    <div class="shorthand" id="shorthand">Shorthand background</div>
+    <div class="grad" id="grad">Gradient background</div>
+    <div class="fade" id="fade">Fade</div>
+    <button class="btn" id="btn">Button label</button>
+    <a href="#x" id="link">A normal link here</a>
+    <span class="imp" id="imp">Important text</span>
+    <div id="inline" style="background-color: #ffffff; color: #111111">Inline styled block text</div>
+    <div class="cross" id="cross">Cross-origin styled block</div>
+    <span class="native-dark" id="native-dark">native dark rule</span>
+    <p>More text so the contrast sampler has enough material to look at.</p>
+    <p>Even more text so the contrast sampler has enough material.</p>
+    <p>Another line of plain paragraph text for the sampler.</p>
+    <p>Yet another line of plain paragraph text for the sampler.</p>
+  </body>
+</html>

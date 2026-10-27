@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Force Dark Mode</title>
+    <link rel="stylesheet" href="../ui/ui.css" />
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <img src="/icons/32.png" alt="" width="20" height="20" />
+      <h1>Force Dark</h1>
+      <label class="switch" title="Dark mode everywhere (Alt+Shift+A)">
+        <input type="checkbox" id="global" />
+        <span></span>
+      </label>
+    </header>
+
+    <section class="site" id="site">
+      <div class="site-row">
+        <div class="site-id">
+          <div class="host" id="host">—</div>
+          <div class="status" id="status"></div>
+        </div>
+        <label class="switch" title="Dark mode on this site (Alt+Shift+D)">
+          <input type="checkbox" id="site-on" />
+          <span></span>
+        </label>
+      </div>
+      <p class="note" id="site-note" hidden></p>
+    </section>
+
+    <section class="appearance" id="appearance">
+      <div class="seg" role="tablist" aria-label="Apply changes to">
+        <button role="tab" data-scope="global">All sites</button>
+        <button role="tab" data-scope="site">This site</button>
+      </div>
+
+      <div class="themes" id="themes"></div>
+
+      <div class="sliders">
+        <label class="slider"><span>Brightness</span><input type="range" min="50" max="150" id="brightness" /><output></output></label>
+        <label class="slider"><span>Contrast</span><input type="range" min="50" max="150" id="contrast" /><output></output></label>
+        <label class="slider"><span>Sepia</span><input type="range" min="0" max="100" id="sepia" /><output></output></label>
+      </div>
+      <label class="check"><input type="checkbox" id="dim-images" /> Dim images</label>
+      <button class="link" id="reset-site" hidden>Reset this site to defaults</button>
+    </section>
+
+    <section class="engine" id="engine-box">
+      <div class="label-row"><span>Engine</span><span class="hint" id="engine-hint"></span></div>
+      <div class="seg" id="engine">
+        <button data-engine="auto">Auto</button>
+        <button data-engine="css">CSS</button>
+        <button data-engine="filter">Filter</button>
+      </div>
+      <button class="link" id="retry-css" hidden>Auto switched to Filter here. Try CSS again</button>
+    </section>
+
+    <footer>
+      <span id="schedule"></span>
+      <button class="ghost" id="open-options">Settings</button>
+    </footer>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>dynamic</title>
+    <style id="base">body { background: #fff; color: #000; }</style>
+  </head>
+  <body>
+    <p>Dynamic page</p>
+    <script>
+      // CSS-in-JS style: rules added with insertRule (no DOM mutation).
+      const sheet = document.getElementById('base').sheet;
+      customElements.define(
+        'x-card',
+        class extends HTMLElement {
+          constructor() {
+            super();
+            const sr = this.attachShadow({ mode: 'open' });
+            sr.innerHTML = '<style>.in { background: #ffffff; color: #000000; }</style><div class="in" id="shadow-inner">shadow content</div>';
+          }
+        },
+      );
+      setTimeout(() => {
+        sheet.insertRule('.late { background-color: #ffffff; color: #000000; }', sheet.cssRules.length);
+        const d = document.createElement('div');
+        d.className = 'late';
+        d.id = 'late';
+        d.textContent = 'late element';
+        document.body.append(d);
+        const s = document.createElement('div');
+        s.id = 'late-inline';
+        s.style.backgroundColor = '#ffffff';
+        s.textContent = 'late inline';
+        document.body.append(s);
+        document.body.append(document.createElement('x-card'));
+      }, 300);
+    </script>
+  </body>
+</html>

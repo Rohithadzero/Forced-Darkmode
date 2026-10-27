@@ -1,0 +1,41 @@
+{
+  "gray": {
+    "label": "Gray",
+    "bg": "#1e1f22",
+    "surface": "#2b2d31",
+    "border": "#3f4147",
+    "text": "#e3e3e3",
+    "muted": "#a9abb0",
+    "link": "#8ab4f8",
+    "visited": "#c58af9",
+    "selection": "#3b5a8a",
+    "filterContrast": 0.76,
+    "filterSepia": 0
+  },
+  "oled": {
+    "label": "OLED Black",
+    "bg": "#000000",
+    "surface": "#0d0d0d",
+    "border": "#2a2a2a",
+    "text": "#d6d6d6",
+    "muted": "#9a9a9a",
+    "link": "#7cacf8",
+    "visited": "#b98af5",
+    "selection": "#264f78",
+    "filterContrast": 0.9,
+    "filterSepia": 0
+  },
+  "dim": {
+    "label": "Dim / Warm",
+    "bg": "#1f1b16",
+    "surface": "#2a251e",
+    "border": "#453c30",
+    "text": "#e8dcc8",
+    "muted": "#b3a690",
+    "link": "#e0a86b",
+    "visited": "#c79a7a",
+    "selection": "#5a4630",
+    "filterContrast": 0.78,
+    "filterSepia": 0.3
+  }
+}

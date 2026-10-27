@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Force Dark Mode",
+  "short_name": "Force Dark",
+  "version": "0.1.0",
+  "description": "Fast, glitch-free dark mode for every website. Gray, OLED black and warm dim themes.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "scripting", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "*://challenges.cloudflare.com/*",
+        "*://hcaptcha.com/*",
+        "*://newassets.hcaptcha.com/*",
+        "*://www.recaptcha.net/*",
+        "*://recaptcha.net/*",
+        "https://www.google.com/recaptcha/*",
+        "https://www.gstatic.com/recaptcha/*"
+      ],
+      "js": ["hooks.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "*://challenges.cloudflare.com/*",
+        "*://hcaptcha.com/*",
+        "*://newassets.hcaptcha.com/*",
+        "*://www.recaptcha.net/*",
+        "*://recaptcha.net/*",
+        "https://www.google.com/recaptcha/*",
+        "https://www.gstatic.com/recaptcha/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Force Dark Mode",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png" }
+  },
+  "options_ui": { "page": "options/options.html", "open_in_tab": true },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "commands": {
+    "toggle-site": {
+      "suggested_key": { "default": "Alt+Shift+D" },
+      "description": "Toggle dark mode on the current site"
+    },
+    "toggle-global": {
+      "suggested_key": { "default": "Alt+Shift+A" },
+      "description": "Toggle dark mode everywhere"
+    },
+    "cycle-theme": {
+      "suggested_key": { "default": "Alt+Shift+T" },
+      "description": "Cycle theme (Gray, OLED Black, Dim)"
+    }
+  }
+}

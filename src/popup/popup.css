@@ -1,0 +1,163 @@
+body {
+  width: 320px;
+}
+
+section {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.top h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-id {
+  flex: 1;
+  min-width: 0;
+}
+.host {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.status {
+  color: var(--muted);
+  font-size: 12px;
+}
+.status::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--dot, var(--muted));
+  vertical-align: 1px;
+}
+.note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.appearance {
+  display: grid;
+  gap: 12px;
+}
+
+.themes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.theme {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+.theme .swatch {
+  height: 46px;
+  border-radius: 8px;
+  padding: 8px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.theme .swatch i {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+}
+.theme .swatch i:nth-child(2) {
+  width: 70%;
+}
+.theme .swatch i:nth-child(3) {
+  width: 45%;
+}
+.theme[aria-pressed='true'] {
+  color: var(--text);
+}
+.theme[aria-pressed='true'] .swatch {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.sliders {
+  display: grid;
+  gap: 6px;
+}
+.slider {
+  display: grid;
+  grid-template-columns: 74px 1fr 34px;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.slider input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.slider output {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.check input {
+  accent-color: var(--accent);
+  margin: 0;
+}
+
+.engine {
+  display: grid;
+  gap: 8px;
+}
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+.hint {
+  font-size: 12px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}

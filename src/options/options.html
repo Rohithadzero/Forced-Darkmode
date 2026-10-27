@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Force Dark Mode – Settings</title>
+    <link rel="stylesheet" href="../ui/ui.css" />
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="/icons/48.png" alt="" width="32" height="32" />
+        <h1>Force Dark Mode</h1>
+      </header>
+
+      <section>
+        <h2>Schedule</h2>
+        <div class="seg" id="schedule-mode">
+          <button data-mode="always">Always</button>
+          <button data-mode="system">Follow system</button>
+          <button data-mode="time">Time range</button>
+        </div>
+        <div class="times" id="times">
+          <label>From <input type="time" id="from" /></label>
+          <label>To <input type="time" id="to" /></label>
+        </div>
+        <p class="muted" id="schedule-hint"></p>
+      </section>
+
+      <section>
+        <h2>Keyboard shortcuts</h2>
+        <ul class="keys">
+          <li><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> Toggle current site</li>
+          <li><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> Toggle everywhere</li>
+          <li><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> Cycle theme</li>
+        </ul>
+        <button class="ghost" id="shortcuts">Change shortcuts</button>
+      </section>
+
+      <section>
+        <h2>Sites</h2>
+        <p class="muted">Sites with their own settings. Bot-check pages (Cloudflare, reCAPTCHA, hCaptcha) are always skipped.</p>
+        <table id="sites">
+          <thead>
+            <tr><th>Site</th><th>Dark</th><th>Theme</th><th>Engine</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="muted" id="sites-empty">No site overrides yet. Change settings for a site from the toolbar popup.</p>
+      </section>
+
+      <section>
+        <h2>Backup</h2>
+        <div class="row">
+          <button class="ghost" id="export">Export settings</button>
+          <label class="ghost file">Import settings<input type="file" id="import" accept="application/json" /></label>
+          <button class="ghost danger" id="reset">Reset everything</button>
+        </div>
+        <p class="muted" id="backup-msg" role="status"></p>
+      </section>
+    </main>
+    <script type="module" src="./options.ts"></script>
+  </body>
+</html>
